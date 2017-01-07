@@ -20,6 +20,8 @@ class CalculatorApp(tk.Frame):
  
         self.calc = core.Calculator()
         self.master.bind('<KeyPress>', self.onKeyPress)
+        self.master.bind('<Enter>', self.evaluate)
+        self.master.bind('<Return>', self.evaluate)
         # We'll use the flexible pack layout manager
         self.pack()
     
@@ -40,7 +42,16 @@ class CalculatorApp(tk.Frame):
     def onKeyPress(self,event):
       if (event.char.isdigit()):
         self.add(int(event.char))
+      elif event.char in {'+', "-", "/", "*"}:
+        self.calc.operate(event.char)
+      elif event.char == "=":
+        self.evaluate()
+      elif event.char == "c":
+        self.calc.clear()
+        print("cleared")
 
+    def evaluate(self, wtf):
+      print(self.calc.evaluate())
     def run(self):
         ''' Run the app '''
         self.mainloop()
@@ -52,6 +63,7 @@ class CalculatorApp(tk.Frame):
 
     def clear(self):
       self.calc.clear()
+
 
 def init():
   app = CalculatorApp(tk.Tk())

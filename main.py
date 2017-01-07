@@ -3,4 +3,3 @@
 import gui
 
 gui.init()
-#gui.insanity()
