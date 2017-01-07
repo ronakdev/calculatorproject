@@ -19,7 +19,7 @@ class CalculatorApp(tk.Frame):
         self.pack_propagate(0)
  
         self.calc = core.Calculator()
-
+        self.master.bind('<KeyPress>', self.onKeyPress)
         # We'll use the flexible pack layout manager
         self.pack()
     
@@ -37,6 +37,9 @@ class CalculatorApp(tk.Frame):
 
         
         #self.recipient.pack(fill=tk.X, side=tk.TOP)
+    def onKeyPress(self,event):
+      if (event.char.isdigit()):
+        self.add(int(event.char))
 
     def run(self):
         ''' Run the app '''
@@ -50,6 +53,6 @@ class CalculatorApp(tk.Frame):
     def clear(self):
       self.calc.clear()
 
-
-app = CalculatorApp(tk.Tk())
-app.run()
+def init():
+  app = CalculatorApp(tk.Tk())
+  app.run()

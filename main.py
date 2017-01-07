@@ -1,15 +1,6 @@
 #!/usr/bin/python
 
-#from Calculator import *
-import core
+import gui
 
-calc = core.Calculator()
-
-while True:
-	a = raw_input()
-	if a == "c":
-		calc.clear()
-	else:
-		calc.add(a)
-	print(calc.getValue())
-
+gui.init()
+#gui.insanity()
