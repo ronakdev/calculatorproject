@@ -5,6 +5,11 @@ import core
 
 calc = core.Calculator()
 
-calc.add(2)
+while True:
+	a = raw_input()
+	if a == "c":
+		calc.clear()
+	else:
+		calc.add(a)
+	print(calc.getValue())
 
-print(calc.getValue())

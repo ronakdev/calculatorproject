@@ -7,8 +7,11 @@ class Calculator():
 
 		self.curr = 0
 
-	def add(self, amt):
-		self.curr += amt
+	def clear(self):
+		self.curr = 0
 
+	#Add as in add a number to the existing number
+	def add(self, value):
+		self.curr = value if self.curr == 0 else int(str(self.curr) + str(value))
 	def getValue(self):
 		return self.curr
