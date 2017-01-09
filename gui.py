@@ -45,13 +45,19 @@ class CalculatorApp(tk.Frame):
       elif event.char in {'+', "-", "/", "*"}:
         self.calc.operate(event.char)
       elif event.char == "=":
-        self.evaluate()
+        self.evaluate('wtf')
       elif event.char == "c":
-        self.calc.clear()
-        print("cleared")
+        self.clear()
+
 
     def evaluate(self, wtf):
-      print(self.calc.evaluate())
+      #print(self.calc.evaluate())
+      self.setDisplay(self.calc.evaluate())
+
+    def setDisplay(self, value):
+      self.display.config(
+        text=value
+      )
     def run(self):
         ''' Run the app '''
         self.mainloop()
@@ -59,10 +65,12 @@ class CalculatorApp(tk.Frame):
     def add(self, value):
       self.calc.add(value)
       self.display.text = str(self.calc.getValue())
-      print(str(self.calc.getValue()))
+      self.setDisplay(self.calc.getValue())
 
     def clear(self):
       self.calc.clear()
+      self.setDisplay("0")
+
 
 
 def init():
