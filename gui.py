@@ -11,10 +11,10 @@ class CalculatorApp(tk.Frame):
         tk.Frame.__init__(self,
                           master,
                           width=300,
-                          height=500)
+                          height=500, bg="BLACK")
         # Set the title
         self.master.title('PyCalculator')
- 
+        self.master.configure(background='black')
         # This allows the size specification to take effect
         self.pack_propagate(0)
  
@@ -25,12 +25,12 @@ class CalculatorApp(tk.Frame):
         # We'll use the flexible pack layout manager
         self.pack()
     
-        self.display = tk.Label(self, text="0", justify="right")
+        self.display = tk.Label(self, text="0", justify="right", font=("Raleway", 30))
         self.display.pack(fill=tk.X, side=tk.TOP)
 
         for i in range(1,10):
           #btn = tk.Button(self, text=i, command=self.add(i))
-          button = tk.Button(master=self, text=i, command= lambda: self.add(i))
+          button = tk.Button(master=self, text=i, command= lambda: self.add(i), font=("Raleway", 16))
 
           button.pack(fill=tk.X, side=tk.TOP)
 
